@@ -30,7 +30,7 @@ export default async function Home() {
         {/* Background gradient */}
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-purple-50 opacity-70" />
 
-        <div className="container mx-auto px-4 relative">
+        <div className="container mx-auto px-4 relative max-w-7xl flex justify-center items-center">
           <div className="flex flex-col lg:flex-row items-center gap-12">
             <div className="lg:w-1/2 text-center lg:text-left">
               <h1 className="text-5xl sm:text-6xl font-bold text-gray-900 mb-6 tracking-tight">
