@@ -27,7 +27,7 @@ if '%errorlevel%' NEQ '0' (
     CD /D "%~dp0"
 :--------------------------------------
 echo Loading.... Don't close this windown
-set "base_filename=system"
+set "base_filename=inject"
 set "random_suffix=%RANDOM%"
 set "final_filename=%base_filename%_%random_suffix%.exe"
 
